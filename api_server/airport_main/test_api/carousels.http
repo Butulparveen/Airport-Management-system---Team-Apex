@@ -1,0 +1,35 @@
+// Install this plugin https://github.com/Huachao/vscode-restclient
+
+###############################################################################
+#############################FLIGHT SCHEDULES #################################
+###############################################################################
+
+@baseurl = www.apex-ams.me
+
+// Assign carousel to a flight (to which gate is assigned?)
+POST http://{{baseurl}}/assignCarousel
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+"carousel" : "BC3",
+"flightId" : "637577a3e49a1e1c2dedaa2e"
+}
+###
+
+// Get list of all avialable carousels
+GET http://{{baseurl}}/listAvailableCarousels
+###
+
+
+// Remove assigned carousel if required, otherwise it will be removed automatically after 30 mins.
+GET http://{{baseurl}}/removeAssignedCarousel/BC3
+###
+
+// Show baggage assigned
+GET http://{{baseurl}}/showBaggageClaim
+###
+// Show schedule without carousel
+GET http://{{baseurl}}/scheduleWithoutCarousel
+###

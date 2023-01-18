@@ -1,0 +1,29 @@
+version: '3'
+services:
+  airport_cache:
+    container_name: airport_cache
+    hostname: airport_cache
+    build:
+      context: airport_cache/
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - AIRLINE_SERVER_URL=http://airport_main:${HTTP_PORT}
+
+  airport_main:
+    container_name: airport_main
+    hostname: airport_main
+    build:
+      context: airport_main/
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "${HTTP_PORT}:${HTTP_PORT}"
+    env_file:
+      - .env
+    environment:
+      - CACHE_SERVER_URL=http://airport_cache:${HTTP_CACHE_PORT}
+    depends_on:
+      - airport_cache

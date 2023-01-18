@@ -1,0 +1,59 @@
+// Install this plugin https://github.com/Huachao/vscode-restclient
+
+###############################################################################
+################################### USERS######################################
+###############################################################################
+
+@baseurl = www.apex-ams.me
+
+
+// Get list of all gates
+GET http://{{baseurl}}/listAllGates
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+###
+
+
+// Get list of all assigned gates
+GET http://{{baseurl}}/getAllAssignedGates
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+###
+
+
+// Set/Unset gate to maintainance
+POST http://{{baseurl}}/updateGateStatus
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+"gate" : "T1G1",
+"isUnderMaintainance" : false
+}
+###
+
+
+// Get list of all available gates
+GET http://{{baseurl}}/listAvailableGates
+###
+
+// Get list of gates which are assigned in next specified hours
+GET http://{{baseurl}}/showGateStatus
+###
+
+#   dev ===> Getting flights between : Fri Nov 11 2022 08:37:17 GMT-0800 (Pacific Standard Time) to Fri Nov 11 2022 05:37:17 GMT-0800 (Pacific Standard Time) +1ms
+
+// Create Gate used only for internal purpose
+POST http://{{baseurl}}/createGate
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+"terminal" : "T1",
+"gate" : "T1G1"
+}
+###
+
+

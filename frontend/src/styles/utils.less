@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.loop(@counter) when (@counter > 0) {
+    .loop((@counter - 1));    // next iteration
+    .p-@{counter} {
+        padding: (5px * @counter); 
+    }
+    .m-@{counter} {
+        margin: (5px * @counter); 
+    }
+
+    .p-@{counter}-top {
+        padding-top: (5px * @counter); 
+    }
+    .p-@{counter}-right {
+        padding-right: (5px * @counter); 
+    }
+    .p-@{counter}-bottom {
+        padding-bottom: (5px * @counter); 
+    }
+    .p-@{counter}-left {
+        padding-left: (5px * @counter); 
+    }
+    .m-@{counter}-top {
+        margin-top: (5px * @counter); 
+    }
+    .m-@{counter}-right {
+        margin-right: (5px * @counter); 
+    }
+    .m-@{counter}-bottom {
+        margin-bottom: (5px * @counter); 
+    }
+    .m-@{counter}-left {
+        margin-left: (5px * @counter); 
+    }
+}
+
+.loop(8);
+
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.text-justify {
+    text-align: justify;
+}
+.d-flex{
+    display: flex;
+}
+.w-70 {
+    width: 70%;
+}
+.w-30 {
+    width: 30%;
+}
+.justify-center {
+    justify-content: center;
+}
+.pointer {
+    cursor: pointer;
+}
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+.z-3 {
+    z-index: 3;
+}
+.z-6 {
+    z-index: 3;
+}
+.w-15{
+    width: 15%;
+}
+.w-30 {
+    width: 30%;
+}
+.w-80{
+    width: 80%;
+}
+.w-70 {
+    width: 70%;
+}
+.relative {
+    position: relative;
+}

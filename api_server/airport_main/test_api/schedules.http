@@ -1,0 +1,153 @@
+// Install this plugin https://github.com/Huachao/vscode-restclient
+
+###############################################################################
+#############################FLIGHT SCHEDULES #################################
+###############################################################################
+
+#### export BASEURL=LB1-591079555.us-west-1.elb.amazonaws.com
+@baseurl = www.apex-ams.me
+# @baseurl = localhost:9999
+
+
+// Create a new schedule
+## Field airline should be autofilled as per the user type, this field 
+## should not be shown to user while creating new schedule
+POST http://{{baseurl}}/addSchedule
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+"airline" : "JetBlue",
+"flight" : 421,
+"scheduled" : "2022-10-30T16:00:00Z",
+"estimated" : "2022-10-30T16:20:00Z",
+"status" : "On-Time",
+"arriving_from" :"Mumbai"
+}
+###
+
+
+
+// Update a new schedule
+## Field airline should be autofilled as per the user type, this field 
+## should not be shown to user while creating new schedule
+POST http://{{baseurl}}/updateSchedule
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+"airline" : "United",
+"flight" : 7900,
+"scheduled" : "2022-12-01T17:52:00.000-08:00",
+"estimated" : "2022-12-01T17:52:00.000-08:00",
+"status" : "On-Time",
+"arriving_from" :"Pune"
+}
+###
+
+
+
+
+// Get list of all arrival flights used for Customers 
+POST http://{{baseurl}}/getSchedule
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+"flow" : "arrivals"
+}
+###
+
+// Get list of all arrival flights for next 1/2/4 hr used for Customers 
+POST http://{{baseurl}}/getSchedule
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+"flow" : "arrivals",
+"forNextHours" : 4
+}
+###
+
+// Get arrival schedule by airline name
+POST http://{{baseurl}}/getSchedule
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+"airline" : "JetBlue",
+"flow" : "arrivals"
+}
+###
+
+// Get arrival schedule by airline name for next 1 hour
+POST http://{{baseurl}}/getSchedule
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+"airline" : "United",
+"flow" : "arrivals",
+"forNextHours" : 4
+}
+###
+
+// Get list of all departure flights used for Customers 
+POST http://{{baseurl}}/getSchedule
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+"flow" : "departures"
+}
+###
+
+// Get list of all departure flights for next 1/2/4 hr used for Customers 
+POST http://{{baseurl}}/getSchedule
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+"flow" : "departures",
+"forNextHours" : 1
+}
+###
+
+// Get departure schedule by airline name
+POST http://{{baseurl}}/getSchedule
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+"airline" : "JetBlue",
+"flow" : "departures"
+}
+###
+
+// Get departure schedule by airline name for next 1 hour
+# POST http://LB1-591079555.us-west-1.elb.amazonaws.com/getSchedule
+POST http://{{baseurl}}/getSchedule
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+"airline" : "JetBlue",
+"flow" : "departures",
+"forNextHours" : 1
+}
+###
+
+// Get list of all gates which are assigned
+GET http://{{baseurl}}/displayScheduleOnTV
+###
+

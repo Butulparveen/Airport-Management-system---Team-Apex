@@ -1,0 +1,31 @@
+// Install this plugin https://github.com/Huachao/vscode-restclient
+
+###############################################################################
+################################### CACHE #####################################
+###############################################################################
+
+// Create Gates CACHE
+POST http://localhost:8888/addGateToCache
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+  "gate":"T1G1",
+  "flightId":"1234567890",
+  "expiresInSec": 10
+}
+###
+
+// Create Carousel CACHE
+POST http://localhost:8888/addCarouselToCache
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+  "carousel":"BC1",
+  "flightId":"1234567890",
+  "expiresInSec": 12
+}
+###

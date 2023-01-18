@@ -1,0 +1,94 @@
+// Install this plugin https://github.com/Huachao/vscode-restclient
+
+###############################################################################
+################################### USERS######################################
+###############################################################################
+@baseurl = www.apex-ams.me
+
+// Create AIRPORT Employee
+POST http://{{baseurl}}/signup
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+  "name":"vaibhav",
+  "userType":"1",
+  "mobile": "11111111",
+  "emailid": "vaibhav@sjsu.com",
+  "passwd":"1111",
+  "airport":"Hawaii"
+}
+###
+
+// Create AIRLINE Employee
+POST http://{{baseurl}}/signup
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+  "name":"sagar",
+  "userType":"2",
+  "mobile": "22222222",
+  "emailid": "sagar@sjsu.com",
+  "passwd":"2222",
+  "airline":"United"
+}
+###
+
+
+
+// Create CUSTOMER
+POST http://{{baseurl}}/signup
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+  "name":"butul",
+  "userType":"3",
+  "mobile": "33333333",
+  "emailid": "butul@sjsu.com",
+  "passwd":"3333"
+}
+###
+
+
+// Login 
+
+POST http://{{baseurl}}/login
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+    "mobile":"33333333",
+    "passwd":"3333"
+}
+###
+
+
+
+POST http://{{baseurl}}/login
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+    "mobile":"22222222",
+    "passwd":"2222"
+}
+###
+
+POST http://{{baseurl}}/login
+User-Agent: "UI_BACKEND_SERVER"
+Accept-Version: 1.0.0
+Content-Type: application/json
+
+{
+    "mobile":"11111111",
+    "passwd":"1111"
+}
+###
+

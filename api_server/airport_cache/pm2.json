@@ -1,0 +1,17 @@
+{
+  "apps": [
+    {
+      "name": "apex-ams-cache",
+      "script": "server.js",
+      "out_file": "/dev/null",
+      "error_file": "/dev/null",
+      "watch": true,
+      "watch_options": {
+        "usePolling": true
+      },
+      "env": {
+        "production": true
+      }
+    }
+  ]
+}
